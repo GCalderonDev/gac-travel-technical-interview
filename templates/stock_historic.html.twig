@@ -1,0 +1,24 @@
+{% extends 'layout/cms.html.twig' %}
+
+{% block table %}
+    <div class="table-responsive mb-3">
+        <table class="table mb-0 tbl-server-info no-footer" role="grid">
+            <thead class="bg-white text-uppercase">
+            <tr class="ligth ligth-data" role="row">
+                <th class="text-left">Nombre</th>
+                <th class="text-left">Código</th>
+                <th class="text-left">Categoría</th>
+                <th class="text-center">Stock</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="text-left">Pepe</td>
+                <td class="text-left">1</td>
+                <td class="text-left">Balones de fútbol</td>
+                <td class="text-center">10</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

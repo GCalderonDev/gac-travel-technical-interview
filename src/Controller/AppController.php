@@ -8,30 +8,12 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AppController extends AbstractController
 {
-    #[Route('/', name: 'products')]
+    #[Route('/', name: 'stock_history')]
     public function products(): Response
     {
-        return $this->render('products.html.twig', [
-            'crud_name' => 'Productos',
-            'create_route' => $this->generateUrl('products')
-        ]);
-    }
-
-    #[Route('/categories', name: 'categories')]
-    public function categories(): Response
-    {
-        return $this->render('categories.html.twig', [
-            'crud_name' => 'Categorías',
-            'create_route' => $this->generateUrl('categories')
-        ]);
-    }
-
-    #[Route('/users', name: 'users')]
-    public function users(): Response
-    {
-        return $this->render('users.html.twig', [
-            'crud_name' => 'Usuarios',
-            'create_route' => $this->generateUrl('users')
+        return $this->render('stock_historic.html.twig', [
+            'crud_name' => 'Histórico de stock',
+            'create_route' => $this->generateUrl('stock_history')
         ]);
     }
 }
