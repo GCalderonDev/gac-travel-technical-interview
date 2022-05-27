@@ -11,6 +11,7 @@
 /var/
 /vendor/
 .env
+/public/assets
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###
