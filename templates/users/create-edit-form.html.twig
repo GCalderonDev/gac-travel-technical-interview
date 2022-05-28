@@ -5,13 +5,6 @@
         <div class="container">
             <div class="row">
                 <div class="container-fluid add-form-list">
-                    {% if errors is defined %}
-                        {% for error in errors %}
-                            <div class="alert alert-danger">
-                                <li>{{ error.message }}</li>
-                            </div>
-                        {% endfor %}
-                    {% endif %}
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="card">
@@ -52,7 +45,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-primary mr-2">Create</button>
+                                    <button type="submit" class="btn btn-primary mr-2">Save</button>
                                     {{ form_end(userForm) }}
                                 </div>
                             </div>
