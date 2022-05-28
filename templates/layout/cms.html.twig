@@ -63,26 +63,6 @@
             </div>
         </div>
 
-        <div class="content-page">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="d-flex flex-wrap flex-wrap align-items-center justify-content-between mb-4">
-                            <div>
-                                <h4 class="mb-3">{{ crud_name }}</h4>
-                            </div>
-                            <a href="{{ create_route }}" class="btn btn-primary add-list">
-                                <i class="las la-plus mr-3"></i>Crear
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="table-responsive mb-3">
-                            {% block table %}{% endblock %}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {% block content %}{% endblock %}
     </div>
 {% endblock %}
