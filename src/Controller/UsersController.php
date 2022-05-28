@@ -44,7 +44,7 @@ class UsersController extends AbstractController
             $user->setRoles($form->get('roles')->getData());
             $user->setCreatedAt(new DateTimeImmutable());
 
-            // All data validated
+            // Save entity
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
@@ -75,7 +75,7 @@ class UsersController extends AbstractController
             $user->setActive($form->get('active')->getData());
             $user->setRoles($form->get('roles')->getData());
 
-            // All data validated
+            // Save entity
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->flush();
 
