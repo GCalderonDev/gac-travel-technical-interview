@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 #[IsGranted('ROLE_ADMIN')]
 class CategoriesController extends AbstractController
 {
-    #[Route('/admin/categories', name: 'admin_categories')]
+    #[Route('/categories', name: 'admin_categories')]
     public function index(): Response
     {
         $entityManager = $this->getDoctrine()->getManager();
@@ -27,7 +27,7 @@ class CategoriesController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/categories/create', name: 'admin_categories_create')]
+    #[Route('/categories/create', name: 'admin_categories_create')]
     public function create(Request $request): Response
     {
         $category = new Categories();
@@ -54,7 +54,7 @@ class CategoriesController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/categories/{category}/edit', name: 'admin_categories_edit')]
+    #[Route('/categories/{category}/edit', name: 'admin_categories_edit')]
     public function edit(Request $request, Categories $category): Response
     {
         $form = $this->createForm(CategoriesType::class, $category);
@@ -79,7 +79,7 @@ class CategoriesController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/categories/delete/{category}', name: 'admin_categories_delete')]
+    #[Route('/categories/delete/{category}', name: 'admin_categories_delete')]
     public function delete(Categories $category): Response
     {
         // Save entity

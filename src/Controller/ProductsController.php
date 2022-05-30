@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 #[IsGranted('ROLE_ADMIN')]
 class ProductsController extends AbstractController
 {
-    #[Route('/admin/products', name: 'admin_products')]
+    #[Route('/', name: 'admin_products')]
     public function index(): Response
     {
         $entityManager = $this->getDoctrine()->getManager();
@@ -27,7 +27,7 @@ class ProductsController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/products/create', name: 'admin_products_create')]
+    #[Route('/products/create', name: 'admin_products_create')]
     public function create(Request $request): Response
     {
         $product = new Products();
@@ -56,7 +56,7 @@ class ProductsController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/products/{product}/edit', name: 'admin_products_edit')]
+    #[Route('/products/{product}/edit', name: 'admin_products_edit')]
     public function edit(Request $request, Products $product): Response
     {
         $form = $this->createForm(ProductsType::class, $product);
@@ -84,7 +84,7 @@ class ProductsController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/products/delete/{product}', name: 'admin_products_delete')]
+    #[Route('/products/delete/{product}', name: 'admin_products_delete')]
     public function delete(Products $product): Response
     {
         // Delete entity

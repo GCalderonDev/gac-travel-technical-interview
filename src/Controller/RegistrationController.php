@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Users;
 use App\Form\RegistrationFormType;
+use App\Security\LoginFormAuthenticator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -29,13 +30,20 @@ class RegistrationController extends AbstractController
             );
 
             $user->setActive(true);
-            $user->setRoles(['ROLE_USER']);
+            $user->setRoles(['ROLE_ADMIN']);
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
 
-            return $this->redirectToRoute('stock_history');
+            // Log user
+
+
+            if ($this->getUser()) {
+                return $this->redirectToRoute('admin_products');
+            }
+
+            return $this->render('success.html.twig');
         }
 
         return $this->render('registration/register.html.twig', [
