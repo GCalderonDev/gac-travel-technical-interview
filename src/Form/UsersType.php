@@ -60,19 +60,6 @@ class UsersType extends AbstractType
                 ],
                 'required' => true,
                 'data' => isset($options['data']) && !is_null($options['data']->getActive()) ? $options['data']->getActive() : ''
-            ])
-            ->add('roles', ChoiceType::class, [
-                'attr' => [
-                    'class' => 'selectpicker form-control'
-                ],
-                'required' => true,
-                'multiple' => true,
-                'expanded' => false,
-                'choices'  => [
-                    'Admin' => 'ROLE_ADMIN',
-                    'User' => 'ROLE_USER',
-                ],
-                'data' => isset($options['data']) && !is_null($options['data']->getRoles()) ? $options['data']->getRoles() : ''
             ]);
     }
 

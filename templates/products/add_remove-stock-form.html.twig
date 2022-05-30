@@ -1,0 +1,42 @@
+{% extends 'layout/cms.html.twig' %}
+
+{% block content %}
+    <div class="content-page">
+        <div class="container">
+            <div class="row">
+                <div class="container-fluid add-form-list">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card">
+                                <div class="card-header d-flex justify-content-between">
+                                    <div class="header-title">
+                                        <h4 class="card-title">{{ crud_name }}</h4>
+                                    </div>
+                                </div>
+                                {% for flashMessage in app.session.flashbag.get('error') %}
+                                    <div class="col-lg-12">
+                                        <div class="badge badge-danger custom-flash">{{ flashMessage }}</div>
+                                    </div>
+                                {% endfor %}
+                                <div class="card-body">
+                                    {{ form_start(addRemoveForm) }}
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                {{ form_label(addRemoveForm.stock, 'Stock') }}
+                                                {{ form_widget(addRemoveForm.stock) }}
+                                                {{ form_errors(addRemoveForm.stock) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary mr-2">Save</button>
+                                    {{ form_end(addRemoveForm) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

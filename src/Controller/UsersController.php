@@ -16,7 +16,7 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 #[IsGranted('ROLE_ADMIN')]
 class UsersController extends AbstractController
 {
-    #[Route('/admin/users', name: 'admin_users')]
+    #[Route('/users', name: 'admin_users')]
     public function index(): Response
     {
         $entityManager = $this->getDoctrine()->getManager();
@@ -29,7 +29,7 @@ class UsersController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/users/create', name: 'admin_users_create')]
+    #[Route('/users/create', name: 'admin_users_create')]
     public function create(Request $request, UserPasswordHasherInterface $userPasswordHasherInterface): Response
     {
         $user = new Users();
@@ -41,7 +41,7 @@ class UsersController extends AbstractController
             $user->setUsername($form->get('username')->getData());
             $user->setPassword($userPasswordHasherInterface->hashPassword($user, $form->get('password')->getData()));
             $user->setActive($form->get('active')->getData());
-            $user->setRoles($form->get('roles')->getData());
+            $user->setRoles(['ROLE_ADMIN']);
             $user->setCreatedAt(new DateTimeImmutable());
 
             // Save entity
@@ -60,7 +60,7 @@ class UsersController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/users/{user}/edit', name: 'admin_users_edit')]
+    #[Route('/users/{user}/edit', name: 'admin_users_edit')]
     public function edit(Request $request, UserPasswordHasherInterface $userPasswordHasherInterface, Users $user): Response
     {
         $form = $this->createForm(UsersType::class, $user);
@@ -91,7 +91,7 @@ class UsersController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/users/delete/{user}', name: 'admin_users_delete')]
+    #[Route('/users/delete/{user}', name: 'admin_users_delete')]
     public function delete(Users $user): Response
     {
         $entityManager = $this->getDoctrine()->getManager();

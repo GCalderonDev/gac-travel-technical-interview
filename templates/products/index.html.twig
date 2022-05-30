@@ -44,6 +44,14 @@
                                            href="{{ path('admin_products_edit', {'product': product.id}) }}">
                                             <i class="ri-pencil-line"></i>
                                         </a>
+                                        <a class="badge bg-success" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add stock"
+                                           href="{{ path('admin_stock-historic_add-remove', {'product': product.id}) }}">
+                                            <i class="las la-plus"></i>
+                                        </a>
+                                        <a class="badge bg-success" data-toggle="tooltip" data-placement="top" title="" data-original-title="Historic"
+                                           href="{{ path('admin_stock-historic', {'product': product.id}) }}">
+                                            <i class="las la-history"></i>
+                                        </a>
                                         <a class="badge bg-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"
                                            href="{{ path('admin_products_delete', {'product': product.id}) }}">
                                             <i class="las la-minus"></i>
