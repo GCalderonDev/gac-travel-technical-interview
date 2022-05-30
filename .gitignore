@@ -1,3 +1,6 @@
+###> PHPStorm ###
+.idea
+###> PHPStorm ###
 
 ###> symfony/framework-bundle ###
 /.env.local
@@ -7,6 +10,7 @@
 /public/bundles/
 /var/
 /vendor/
+.env
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###
